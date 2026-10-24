@@ -1,0 +1,27 @@
+name: Preparar Gracia Camp desde ZIP
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Gracia-Camp-Listo-para-Vercel.zip"
+      - ".github/workflows/preparar-gracia-camp.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extraer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extraer sitio estatico
+        run: |
+          unzip -o Gracia-Camp-Listo-para-Vercel.zip index.html vercel.json
+          test -s index.html
+          grep -q 'html' index.html
+      - name: Publicar archivos en main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html vercel.json
+          git rm Gracia-Camp-Listo-para-Vercel.zip
+          git diff --cached --quiet || (git commit -m "feat: publicar los cuatro juegos Gracia Camp" && git push origin main)
