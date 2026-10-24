@@ -60,3 +60,37 @@
 #gc4-app .score{padding:5px 10px!important}
 #gc4-app header{padding-bottom:5px!important}
 }
+
+
+/* v4 — compactación estricta para proyector, sin scroll de juego */
+@media (min-width:901px){
+#gc4-app{box-sizing:border-box!important;height:100dvh!important;max-height:100dvh!important;min-height:0!important;overflow:hidden!important;padding:8px 16px!important}
+#gc4-app *,#gc4-app *::before,#gc4-app *::after{box-sizing:border-box}
+#gc4-app .wrap{height:100%!important;max-height:100%!important;display:flex!important;flex-direction:column!important;min-height:0!important}
+#gc4-app header{flex:0 0 auto!important;min-height:0!important;padding:0 0 5px!important}
+#gc4-app header h1{font-size:clamp(20px,1.9vw,28px)!important;line-height:1!important;margin:0!important}
+#gc4-app header .badge{font-size:15px!important;padding:4px 9px!important}
+#gc4-app .gamegrid{flex:1 1 auto!important;min-height:0!important;overflow:hidden!important;margin-top:7px!important;gap:10px!important;grid-template-columns:minmax(0,1fr) 190px!important}
+#gc4-app .gamegrid>section{min-height:0!important;overflow:hidden!important;gap:6px!important}
+#gc4-app .gamegrid>section>.row{min-height:36px!important;max-height:40px!important;flex:0 0 auto!important}
+#gc4-app .timer{height:36px!important;min-height:36px!important;width:90px!important;min-width:90px!important;font-size:23px!important;padding:2px 7px!important}
+#gc4-app .clue{flex:1 1 auto!important;height:auto!important;min-height:120px!important;max-height:38dvh!important;padding:10px 16px!important;gap:5px!important;border-width:2px!important}
+#gc4-app .clue .label{font-size:clamp(15px,1.3vw,19px)!important}
+#gc4-app .clue .content{font-size:clamp(23px,2.15vw,32px)!important;line-height:1.13!important;margin:0!important;font-weight:800!important}
+#gc4-app .clue .hidden-answer{font-size:13px!important;margin:0!important}
+#gc4-app .scoreside{gap:5px!important}
+#gc4-app .scoreside h3{font-size:17px!important;margin:0!important}
+#gc4-app .score{padding:6px 8px!important}
+#gc4-app .score strong{font-size:23px!important}
+#gc4-app .score button{font-size:12px!important;min-height:30px!important;padding:3px 6px!important}
+#gc4-app .answer{font-size:clamp(24px,2.2vw,32px)!important;padding:6px 9px!important;line-height:1.1!important}
+#gc4-app .ref{font-size:12px!important}
+#gc4-app .foot{flex:0 0 auto!important;flex-wrap:wrap!important;gap:6px!important;margin:2px 0!important}
+#gc4-app .foot button{min-height:34px!important;padding:5px 10px!important;font-size:12px!important}
+#gc4-app .help{font-size:10px!important;line-height:1.15!important}
+}
+@media(min-width:901px) and (max-height:780px){
+#gc4-app .clue{max-height:34dvh!important;min-height:110px!important}
+#gc4-app .clue .content{font-size:clamp(21px,1.95vw,29px)!important}
+#gc4-app .scoreside .score{padding:4px 7px!important}
+}
