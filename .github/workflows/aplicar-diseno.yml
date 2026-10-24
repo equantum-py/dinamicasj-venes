@@ -1,0 +1,33 @@
+name: Aplicar diseño Gracia Camp
+on:
+  push:
+    branches: [main]
+    paths:
+      - "gracia-camp-home.css"
+      - ".github/workflows/aplicar-diseno.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vincular estilos a la aplicación
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          html=p.read_text(encoding="utf-8")
+          marker='<link rel="stylesheet" href="/gracia-camp-home.css">'
+          if marker not in html:
+              assert "</head>" in html, "HTML sin cierre de head"
+              html=html.replace("</head>",marker+"\n</head>",1)
+              p.write_text(html,encoding="utf-8")
+          PY
+      - name: Publicar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || (git commit -m "style: activar portada de cuatro juegos" && git push origin main)
