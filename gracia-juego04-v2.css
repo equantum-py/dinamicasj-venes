@@ -249,3 +249,43 @@
 #gc4-app .help{font-size:12px!important}
 }
 @media(max-width:900px){#gc4-app .timer{min-width:105px!important;width:105px!important;height:68px!important;min-height:68px!important;font-size:24px!important}#gc4-app .setup{margin:12px auto!important;padding:18px!important}}
+
+
+/* GC04: cronómetro protagonista, visible desde proyector, sin tocar fondo */
+@media(min-width:901px){
+ #gc4-app .gamegrid>section>.row{
+   display:flex!important;align-items:center!important;justify-content:space-between!important;
+   min-height:152px!important;max-height:none!important;gap:18px!important;
+ }
+ #gc4-app .gamegrid>section>.row .timer,
+ #gc4-app #gc4-clock{
+   display:flex!important;align-items:center!important;justify-content:center!important;
+   position:relative!important;visibility:visible!important;opacity:1!important;
+   width:148px!important;min-width:148px!important;max-width:148px!important;
+   height:148px!important;min-height:148px!important;max-height:148px!important;
+   border:9px solid #a8a06a!important;border-radius:50%!important;
+   background:#fff!important;color:#103c2a!important;
+   font-size:42px!important;font-weight:900!important;line-height:1!important;
+   white-space:nowrap!important;word-break:normal!important;overflow:visible!important;
+   box-shadow:0 0 0 5px rgba(168,160,106,.13),0 6px 18px rgba(24,50,35,.1)!important;
+   padding:8px!important;flex:0 0 148px!important;text-align:center!important;
+ }
+ #gc4-app .gamegrid>section>.row .timer.warn,
+ #gc4-app #gc4-clock.warn{border-color:#b6352a!important;color:#b6352a!important}
+ #gc4-app .clue{min-height:clamp(215px,30dvh,285px)!important}
+}
+@media(min-width:901px) and (max-height:720px){
+ #gc4-app .gamegrid>section>.row{min-height:124px!important}
+ #gc4-app .gamegrid>section>.row .timer,#gc4-app #gc4-clock{
+ width:120px!important;min-width:120px!important;max-width:120px!important;
+ height:120px!important;min-height:120px!important;max-height:120px!important;
+ flex-basis:120px!important;font-size:34px!important}
+ #gc4-app .clue{min-height:195px!important}
+}
+@media(max-width:900px){
+ #gc4-app .timer,#gc4-app #gc4-clock{
+ width:112px!important;min-width:112px!important;height:112px!important;min-height:112px!important;
+ border:6px solid #a8a06a!important;border-radius:50%!important;font-size:30px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ background:#fff!important;color:#143b2b!important;white-space:nowrap!important}
+}
