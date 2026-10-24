@@ -1,0 +1,15 @@
+/* Gracia Camp — portada de cuatro juegos / legibilidad para proyector */
+.home { min-height: 100vh !important; height: auto !important; overflow-y: auto !important; }
+.home .games { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:18px !important; width:min(100%,1120px) !important; max-width:1120px !important; margin:20px auto 140px !important; align-items:stretch !important; }
+.home .game-card,.home .gc4-card { box-sizing:border-box !important; width:100% !important; min-width:0 !important; min-height:210px !important; max-height:none !important; display:grid !important; grid-template-columns:66px minmax(0,1fr) !important; grid-template-rows:auto auto 1fr auto !important; column-gap:17px !important; row-gap:5px !important; padding:23px !important; border-radius:17px !important; border:1px solid #b6bcae !important; border-top:4px solid #285a43 !important; background:#fffef9 !important; color:#102d20 !important; text-align:left !important; box-shadow:0 8px 25px rgba(0,0,0,.11) !important; }
+.home .game-card .gc-icon { grid-column:1 !important; grid-row:1/3 !important; }
+.home .game-card .eyebrow,.home .game-card .name,.home .game-card .desc,.home .game-card .go { grid-column:2 !important; color:#102d20 !important; }
+.home .game-card .eyebrow { grid-row:1 !important; font-size:12px !important; letter-spacing:.17em !important; }
+.home .game-card .name { grid-row:2 !important; font-size:clamp(21px,2vw,29px) !important; line-height:1.08 !important; overflow-wrap:break-word !important; margin:0 !important; }
+.home .game-card .desc { grid-row:3 !important; font-size:15px !important; line-height:1.35 !important; color:#3a5547 !important; margin:4px 0 !important; }
+.home .game-card .go { grid-row:4 !important; justify-self:start !important; font-size:13px !important; letter-spacing:.04em !important; padding:10px 16px !important; color:#fff !important; background:#17513a !important; border:0 !important; border-radius:100px !important; }
+.home .gc4-card { grid-template-columns:66px minmax(0,1fr) !important; }
+.home .gc4-card .eyebrow,.home .gc4-card .name,.home .gc4-card .desc,.home .gc4-card .go { grid-column:2 !important; }
+.home .home-foot { position:relative !important; inset:auto !important; height:auto !important; min-height:96px !important; padding:18px 30px !important; }
+@media (min-width:1450px) { .home .games { max-width:1240px !important; } }
+@media (max-width:760px) { .home .games { grid-template-columns:1fr !important; width:calc(100% - 30px) !important; margin-bottom:35px !important; } .home .game-card,.home .gc4-card { min-height:190px !important; padding:18px !important; } .home .home-foot { display:flex !important; flex-wrap:wrap !important; gap:14px !important; } }
