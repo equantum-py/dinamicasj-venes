@@ -1,0 +1,53 @@
+name: Integrar Juego 04 mejorado
+on:
+  push:
+    branches: [main]
+    paths:
+      - "gracia-lugares-v2.js"
+      - "gracia-juego04-v2.css"
+      - ".github/workflows/integrar-juego04-v2.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  integrar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Integrar pistas y estilo sin tocar juegos 01-03
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          html=p.read_text(encoding="utf-8")
+          css='<link rel="stylesheet" href="/gracia-juego04-v2.css?v=2">'
+          js='<script src="/gracia-lugares-v2.js?v=2"></script>'
+          if css not in html:
+              if "</head>" in html: html=html.replace("</head>",css+"\n</head>",1)
+              else: raise RuntimeError("No se encontró head")
+          if js not in html:
+              needle='<script id="gc4-script">'
+              assert needle in html, "No se encontró el script del Juego 04"
+              html=html.replace(needle,js+"\n"+needle,1)
+          patch="""// Banco de lugares v2: sustituye las preguntas de lugares demasiado fáciles.
+const lugaresV2 = window.GRACIA_LUGARES_V2 || [];
+if (lugaresV2.length !== 49) console.error('Banco de lugares incompleto', lugaresV2.length);
+for (let i=DATA.length-1;i>=0;i--) if(DATA[i][0]==='lugar') DATA.splice(i,1);
+DATA.push(...lugaresV2);
+"""
+          if 'const lugaresV2 = window.GRACIA_LUGARES_V2' not in html:
+              needle="const root=document.getElementById('gc4-app')"
+              assert needle in html, "No se encontró punto de integración de datos"
+              html=html.replace(needle,patch+needle,1)
+          p.write_text(html,encoding="utf-8")
+          print('integración lista',len(html))
+          PY
+          test -s index.html
+          test -s gracia-lugares-v2.js
+          test -s gracia-juego04-v2.css
+      - name: Commit en main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || (git commit -m "feat: integrar 49 lugares y rediseño Juego 04" && git push origin main)
