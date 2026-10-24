@@ -219,54 +219,33 @@
 }
 
 
-
-/* Juego 04 — presentación bosque, equilibrada para proyector */
-@media (min-width:901px) {
-#gc4-app{background:radial-gradient(circle at 50% 47%,rgba(145,151,109,.12),transparent 44%),repeating-radial-gradient(circle at 50% 45%,transparent 0 88px,rgba(185,178,126,.035) 89px 90px),linear-gradient(135deg,#13231b,#1b3024 55%,#101e17)!important;color:#f3f0e6!important;padding:16px 24px!important;overflow:auto!important}
-#gc4-app .wrap{max-width:1480px!important;height:auto!important;min-height:calc(100dvh - 32px)!important;max-height:none!important}
-#gc4-app header{border-bottom:1px solid rgba(184,173,119,.35)!important;padding:4px 0 12px!important}
-#gc4-app header h1{color:#f3f0e6!important;font-size:clamp(25px,2.25vw,35px)!important}
-#gc4-app header .logo{color:#c3bc8d!important}
-#gc4-app .badge{background:rgba(168,160,106,.17)!important;color:#e6dcaa!important;border:1px solid rgba(168,160,106,.6)!important;font-size:clamp(14px,1.1vw,18px)!important;letter-spacing:.06em!important;padding:8px 12px!important}
-#gc4-app .gamegrid{display:grid!important;flex:initial!important;grid-template-columns:minmax(0,1fr) minmax(205px,250px)!important;gap:22px!important;overflow:visible!important;margin-top:20px!important}
-#gc4-app .gamegrid>section{display:flex!important;flex-direction:column!important;overflow:visible!important;gap:14px!important}
-#gc4-app .gamegrid>section>.row{min-height:112px!important;max-height:none!important;align-items:center!important}
-#gc4-app .timer{width:112px!important;min-width:112px!important;height:112px!important;min-height:112px!important;border:7px solid #afa56e!important;border-radius:50%!important;background:#192b20!important;color:#f3f0e6!important;font-size:clamp(30px,2.8vw,44px)!important;box-shadow:0 0 0 5px rgba(168,160,106,.08)!important;padding:8px!important}
-#gc4-app .timer.warn{color:#ffb7a9!important;border-color:#cf7867!important}
-#gc4-app .clue{flex:none!important;height:auto!important;min-height:clamp(240px,36dvh,340px)!important;max-height:none!important;padding:25px 32px!important;gap:16px!important;background:rgba(16,30,23,.75)!important;border:1px solid rgba(168,160,106,.65)!important;border-radius:18px!important;box-shadow:0 16px 45px rgba(0,0,0,.16)!important}
-#gc4-app .clue .label{font-size:clamp(19px,1.55vw,24px)!important;color:#bfb682!important}
-#gc4-app .clue .content{font-size:clamp(29px,3vw,47px)!important;line-height:1.2!important;color:#f3f0e6!important;margin:6px 0!important}
-#gc4-app .clue .hidden-answer{color:#c4c8ba!important;font-size:15px!important}
-#gc4-app .scoreside h3{font-size:22px!important;color:#e6dcaa!important;margin:0 0 8px!important}
-#gc4-app .score{background:rgba(15,29,21,.72)!important;border:1px solid rgba(168,160,106,.45)!important;color:#f3f0e6!important;padding:15px!important;margin:0 0 12px!important}
-#gc4-app .score .small{color:#d1cfbd!important;font-size:16px!important}
-#gc4-app .score strong{font-size:34px!important;color:#f3f0e6!important}
-#gc4-app .foot{gap:12px!important;margin:8px 0!important}
-#gc4-app .foot button{font-size:15px!important;min-height:48px!important;padding:10px 15px!important}
-#gc4-app button{border-color:#a8a06a!important}
-#gc4-app button.primary{background:#a8a06a!important;color:#17271c!important}
-#gc4-app button.gold{background:#d7c779!important;color:#17271c!important}
-#gc4-app .answer{background:#203b2b!important;border:2px solid #a8a06a!important;color:#f3f0e6!important;font-size:clamp(29px,2.7vw,42px)!important;padding:12px!important}
-#gc4-app .ref,#gc4-app .help{color:#c1c5b7!important;font-size:14px!important}
+/* Juego 04 — corrección final: fondo claro propio, contraste y cronómetro legible */
+#gc4-app{background:#f5f2e7!important;color:#143b2b!important;overflow-y:auto!important}
+#gc4-app .setup{background:#fff!important;color:#143b2b!important;max-width:760px!important;margin:24px auto!important;padding:24px 30px!important}
+#gc4-app .setup h1,#gc4-app .setup h2,#gc4-app .setup h3,#gc4-app .setup p,#gc4-app .setup label{color:#143b2b!important;opacity:1!important}
+#gc4-app .setup select,#gc4-app .setup input{color:#143b2b!important;background:#fff!important}
+#gc4-app header h1,#gc4-app .scoreside h3{color:#143b2b!important}
+#gc4-app .clue{background:#fff!important;border-color:#d5b451!important}
+#gc4-app .clue .label{color:#8b762f!important}
+#gc4-app .clue .content{color:#143b2b!important}
+#gc4-app .clue .hidden-answer{color:#52665b!important}
+#gc4-app .score{background:#fff!important;color:#143b2b!important}
+#gc4-app .score strong,#gc4-app .score .small{color:#143b2b!important}
+#gc4-app .answer{background:#e7f7e9!important;color:#17683d!important}
+#gc4-app .help,#gc4-app .ref{color:#4c5a50!important}
+#gc4-app .timer{display:inline-flex!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;word-break:keep-all!important;flex-shrink:0!important;background:#fff!important;color:#143b2b!important;border:3px solid #a8a06a!important;border-radius:999px!important;min-width:118px!important;width:118px!important;height:76px!important;min-height:76px!important;font-size:clamp(23px,2.2vw,31px)!important;line-height:1!important;padding:8px!important}
+#gc4-app .timer.warn{color:#ad3029!important;border-color:#ad3029!important}
+@media(min-width:901px){
+#gc4-app{padding:12px 20px!important;overflow-y:auto!important}
+#gc4-app .wrap{height:auto!important;min-height:0!important;max-height:none!important}
+#gc4-app .gamegrid{overflow:visible!important;flex:initial!important;grid-template-columns:minmax(0,1fr) 235px!important;gap:16px!important}
+#gc4-app .gamegrid>section{overflow:visible!important;gap:10px!important}
+#gc4-app .gamegrid>section>.row{min-height:76px!important;max-height:none!important}
+#gc4-app .clue{height:auto!important;min-height:clamp(230px,33dvh,300px)!important;max-height:none!important;padding:18px 24px!important}
+#gc4-app .clue .content{font-size:clamp(27px,2.8vw,43px)!important;line-height:1.2!important}
+#gc4-app .foot button{min-height:42px!important;font-size:14px!important}
+#gc4-app .scoreside h3{font-size:20px!important}
+#gc4-app .score{padding:10px!important}
+#gc4-app .help{font-size:12px!important}
 }
-@media (min-width:901px) and (max-height:800px){
-#gc4-app{padding:10px 20px!important}
-#gc4-app .wrap{min-height:calc(100dvh - 20px)!important}
-#gc4-app .gamegrid{margin-top:10px!important}
-#gc4-app .gamegrid>section>.row{min-height:90px!important}
-#gc4-app .timer{width:90px!important;min-width:90px!important;height:90px!important;min-height:90px!important;font-size:30px!important}
-#gc4-app .clue{min-height:clamp(205px,32dvh,270px)!important;padding:16px 24px!important;gap:8px!important}
-#gc4-app .clue .content{font-size:clamp(28px,2.65vw,40px)!important}
-#gc4-app .foot button{min-height:42px!important}
-}
-@media (max-width:900px){
-#gc4-app{background:linear-gradient(140deg,#172a1e,#243a29)!important;color:#f3f0e6!important}
-#gc4-app header h1,#gc4-app .scoreside h3{color:#f3f0e6!important}
-#gc4-app .clue{background:#1d3124!important;border-color:#a8a06a!important}
-#gc4-app .clue .content{color:#f3f0e6!important}
-#gc4-app .clue .label{color:#d5c98e!important}
-#gc4-app .score{background:#1b2d21!important;color:#f3f0e6!important}
-#gc4-app .score strong{color:#f3f0e6!important}
-#gc4-app .timer{border-color:#a8a06a!important;background:#1b2d21!important;color:#f3f0e6!important}
-#gc4-app .help,#gc4-app .ref{color:#d2d1c2!important}
-}
+@media(max-width:900px){#gc4-app .timer{min-width:105px!important;width:105px!important;height:68px!important;min-height:68px!important;font-size:24px!important}#gc4-app .setup{margin:12px auto!important;padding:18px!important}}
