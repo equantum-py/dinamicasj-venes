@@ -2,8 +2,10 @@
    Objetivo: no cortar tarjetas, botones ni footer en desktop. */
 .home{
   box-sizing:border-box!important;
-  width:100%!important;
-  max-width:100%!important;
+  width:100vw!important;
+  max-width:none!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
   min-height:100dvh!important;
   height:auto!important;
   overflow-x:hidden!important;
@@ -25,8 +27,8 @@
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
   align-items:stretch!important;
   gap:clamp(10px,1.25vw,18px)!important;
-  width:min(100% - 40px,990px)!important;
-  max-width:990px!important;
+  width:min(calc(100% - 64px),1380px)!important;
+  max-width:1380px!important;
   margin:clamp(12px,2vh,22px) auto 22px!important;
   padding:0!important;
 }
@@ -107,7 +109,7 @@
 }
 .home .home-foot>*{min-width:0!important;max-width:100%!important}
 @media(min-width:1000px) and (max-height:820px){
- .home .games{width:min(100% - 38px,900px)!important;gap:10px!important;margin:10px auto 14px!important}
+ .home .games{width:min(calc(100% - 64px),1220px)!important;gap:10px!important;margin:10px auto 14px!important}
  .home .game-card,.home .gc4-card{min-height:142px!important;padding:12px 14px!important}
  .home .game-card .name{font-size:clamp(18px,1.35vw,22px)!important}
  .home .game-card .desc{font-size:12px!important;line-height:1.25!important}
@@ -123,4 +125,16 @@
  .home .game-card,.home .gc4-card{grid-template-columns:42px minmax(0,1fr)!important;padding:12px!important;column-gap:10px!important}
  .home .game-card .gc-icon{width:42px!important;height:42px!important}
  .home .game-card .name{font-size:19px!important}
+}
+
+/* Desktop amplio: la portada aprovecha el espacio lateral sin alterar el fondo. */
+@media(min-width:1200px){
+ .home .games{width:calc(100% - 96px)!important;max-width:1380px!important;gap:clamp(14px,1.4vw,22px)!important}
+ .home .game-card,.home .gc4-card{grid-template-columns:56px minmax(0,1fr)!important;min-height:170px!important;padding:clamp(16px,1.25vw,22px)!important}
+ .home .game-card .name{font-size:clamp(20px,1.45vw,26px)!important}
+ .home .game-card .desc{font-size:clamp(13px,.92vw,15px)!important}
+}
+@media(min-width:1200px) and (max-height:820px){
+ .home .games{width:calc(100% - 96px)!important;max-width:1320px!important;gap:12px!important;margin:10px auto 14px!important}
+ .home .game-card,.home .gc4-card{min-height:145px!important;padding:12px 16px!important}
 }
