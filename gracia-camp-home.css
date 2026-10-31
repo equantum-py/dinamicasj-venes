@@ -108,14 +108,6 @@
   background:rgba(16,31,22,.84)!important;
 }
 .home .home-foot>*{min-width:0!important;max-width:100%!important}
-@media(min-width:1000px) and (max-height:820px){
- .home .games{width:min(calc(100% - 64px),1220px)!important;gap:10px!important;margin:10px auto 14px!important}
- .home .game-card,.home .gc4-card{min-height:142px!important;padding:12px 14px!important}
- .home .game-card .name{font-size:clamp(18px,1.35vw,22px)!important}
- .home .game-card .desc{font-size:12px!important;line-height:1.25!important}
- .home .game-card .go{padding:8px 12px!important;font-size:11px!important}
- .home .home-foot{padding:9px 18px!important;min-height:65px!important}
-}
 @media(max-width:820px){
  .home .games{grid-template-columns:1fr!important;max-width:590px!important;width:calc(100% - 28px)!important}
  .home .game-card,.home .gc4-card{min-height:155px!important}
@@ -134,11 +126,6 @@
  .home .game-card .name{font-size:clamp(20px,1.45vw,26px)!important}
  .home .game-card .desc{font-size:clamp(13px,.92vw,15px)!important}
 }
-@media(min-width:1200px) and (max-height:820px){
- .home .games{width:calc(100% - 96px)!important;max-width:1320px!important;gap:12px!important;margin:10px auto 14px!important}
- .home .game-card,.home .gc4-card{min-height:145px!important;padding:12px 16px!important}
-}
-
 /* Corrección del contenedor exterior de la portada: evitar el marco central estrecho. */
 @media (min-width: 821px) {
   html:has(.home:not([hidden])),body:has(.home:not([hidden])) {width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;overflow-x:hidden!important}
@@ -149,4 +136,15 @@
   .home .home-main {width:100%!important;max-width:none!important;margin-inline:0!important;align-self:stretch!important;background-size:cover!important;background-position:center center!important}
   .home .games {width:calc(100% - 64px)!important;max-width:1380px!important}
   .home .home-foot {width:100%!important;max-width:none!important}
+}
+
+/* Tarjetas legibles en escritorio: no comprimir por altura de ventana. */
+@media(min-width:821px){
+ .home .games{width:calc(100% - 48px)!important;max-width:1600px!important;gap:clamp(16px,1.6vw,26px)!important;margin:22px auto 30px!important}
+ .home .game-card,.home .gc4-card{min-height:220px!important;padding:clamp(24px,2vw,34px)!important;grid-template-columns:64px minmax(0,1fr)!important;grid-template-rows:auto auto minmax(48px,1fr) auto!important;column-gap:20px!important;row-gap:10px!important}
+ .home .game-card .gc-icon{width:60px!important;height:60px!important}
+ .home .game-card .eyebrow,.home .gc4-card .eyebrow{font-size:13px!important}
+ .home .game-card .name,.home .gc4-card .name{font-size:clamp(22px,1.65vw,28px)!important;line-height:1.2!important}
+ .home .game-card .desc,.home .gc4-card .desc{font-size:clamp(15px,1.05vw,17px)!important;line-height:1.5!important}
+ .home .game-card .go,.home .gc4-card .go{min-height:46px!important;padding:12px 20px!important;font-size:14px!important;line-height:1.2!important}
 }
