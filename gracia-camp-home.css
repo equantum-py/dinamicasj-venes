@@ -138,3 +138,15 @@
  .home .games{width:calc(100% - 96px)!important;max-width:1320px!important;gap:12px!important;margin:10px auto 14px!important}
  .home .game-card,.home .gc4-card{min-height:145px!important;padding:12px 16px!important}
 }
+
+/* Corrección del contenedor exterior de la portada: evitar el marco central estrecho. */
+@media (min-width: 821px) {
+  html:has(.home:not([hidden])),body:has(.home:not([hidden])) {width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;overflow-x:hidden!important}
+  body:has(.home:not([hidden])) > main,
+  body:has(.home:not([hidden])) > #app,
+  body:has(.home:not([hidden])) > #root {width:100%!important;max-width:none!important;margin-inline:0!important}
+  .home {width:100%!important;max-width:none!important;margin:0!important;min-width:0!important}
+  .home .home-main {width:100%!important;max-width:none!important;margin-inline:0!important;align-self:stretch!important;background-size:cover!important;background-position:center center!important}
+  .home .games {width:calc(100% - 64px)!important;max-width:1380px!important}
+  .home .home-foot {width:100%!important;max-width:none!important}
+}
